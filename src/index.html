@@ -1,11 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>TechWave - Inicio</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
-    
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>TechWave</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Catálogo</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Banner Principal -->
+    <section class="banner">
+        <div class="slider">
+            <div class="slide active">
+                <img src="images/slide1.jpg" alt="Gadget 1">
+                <div class="slide-content">
+                    <h2>Explora lo último en tecnología</h2>
+                    <p>Descubre gadgets innovadores que cambiarán tu vida.</p>
+                    <a href="productos.html" class="btn">Ver más</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/slide2.jpg" alt="Gadget 2">
+                <div class="slide-content">
+                    <h2>Smartwatches inteligentes</h2>
+                    <p>Conecta tu mundo con nuestros relojes inteligentes.</p>
+                    <a href="productos.html" class="btn">Ver más</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/slide3.jpg" alt="Gadget 3">
+                <div class="slide-content">
+                    <h2>Auriculares inalámbricos</h2>
+                    <p>Experimenta el sonido como nunca antes.</p>
+                    <a href="productos.html" class="btn">Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <button class="prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+
+    <!-- Productos Destacados -->
+    <section class="featured-products">
+        <h2>Productos Destacados</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="images/product1.jpg" alt="Producto 1">
+                <h3>Drone X200</h3>
+                <p class="price">$299.99</p>
+                <button class="btn">Añadir al carrito</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product2.jpg" alt="Producto 2">
+                <h3>Smartwatch Pro</h3>
+                <p class="price">$199.99</p>
+                <button class="btn">Añadir al carrito</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product3.jpg" alt="Producto 3">
+                <h3>Auriculares SoundX</h3>
+                <p class="price">$149.99</p>
+                <button class="btn">Añadir al carrito</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Opiniones de Clientes -->
+    <section class="testimonials">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial active">
+                <p>"¡Increíble experiencia! Los productos son de alta calidad."</p>
+                <span>- María G.</span>
+            </div>
+            <div class="testimonial">
+                <p>"Rápido envío y excelente atención al cliente."</p>
+                <span>- Juan P.</span>
+            </div>
+            <div class="testimonial">
+                <p>"Me encanta mi nuevo smartwatch, ¡lo recomiendo!"</p>
+                <span>- Ana L.</span>
+            </div>
+        </div>
+        <div class="carousel-nav">
+            <button class="prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 TechWave. Todos los derechos reservados.</p>
+    </footer>
+
+
+    <script src="scripts.js"></script>
 </body>
+
 </html>
