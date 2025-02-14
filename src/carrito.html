@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechWave - Carrito de Compras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="carrito.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>TechWave</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Catálogo</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <section class="cart-section">
+            <h2>Tu Carrito de Compras</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Productos en el carrito se cargan dinámicamente -->
+            </div>
+            <div class="cart-summary">
+                <h3>Resumen de la Compra</h3>
+                <p>Total: <span id="cart-total">$0</span></p>
+                <button class="btn" onclick="confirmPurchase()">Confirmar Compra</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 TechWave. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Simulación de productos en el carrito (pueden cargarse desde localStorage)
+        const cartItems = [
+            { id: 1, name: "Smartphone X", price: 500, quantity: 1, image: "img/phone1.jpg" },
+            { id: 2, name: "Auriculares Inalámbricos", price: 150, quantity: 2, image: "img/headphones1.jpg" }
+        ];
+
+        // Función para cargar productos en el carrito
+        function loadCartItems() {
+            const cartItemsContainer = document.getElementById("cart-items");
+            let total = 0;
+
+            cartItemsContainer.innerHTML = ""; // Limpiar el contenedor
+
+            cartItems.forEach(item => {
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-details">
+                        <h3>${item.name}</h3>
+                        <p>Precio: $${item.price}</p>
+                        <p>Cantidad: ${item.quantity}</p>
+                        <button class="btn-remove" onclick="removeItem(${item.id})">Eliminar</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+                total += item.price * item.quantity;
+            });
+
+            // Actualizar el total
+            document.getElementById("cart-total").textContent = `$${total}`;
+        }
+
+        // Función para eliminar un producto del carrito
+        function removeItem(productId) {
+            const index = cartItems.findIndex(item => item.id === productId);
+            if (index !== -1) {
+                cartItems.splice(index, 1);
+                loadCartItems(); // Recargar los productos en el carrito
+            }
+        }
+
+        // Función para confirmar la compra
+        function confirmPurchase() {
+            alert("¡Compra confirmada! Gracias por tu compra en TechWave.");
+            cartItems.length = 0; // Vaciar el carrito
+            loadCartItems(); // Recargar el carrito
+        }
+
+        // Cargar productos al iniciar la página
+        loadCartItems();
+    </script>
+</body>
+
+</html>
