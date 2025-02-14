@@ -43,7 +43,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023 TechWave. Todos los derechos reservados.</p>
+        <p>&copy; 2025 TechWave. Todos los derechos reservados.</p>
     </footer>
 
     <!-- Scripts -->
@@ -58,6 +58,7 @@
 
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = "<p>No hay productos en el carrito.</p>";
+                document.getElementById("cart-total").textContent = `$0`;
                 return;
             }
 
