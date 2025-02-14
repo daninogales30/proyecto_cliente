@@ -1,0 +1,222 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #00B4FF;
+}
+
+.btn {
+    background: linear-gradient(90deg, #00B4FF, #6E00FF);
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 180, 255, 0.5);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1A1A1A;
+    border-bottom: 1px solid #333;
+}
+
+header .logo h1 {
+    font-size: 24px;
+    color: #00B4FF;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+/* Formulario de Contacto */
+.contact-section {
+    padding: 40px 20px;
+    background-color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #00B4FF;
+}
+
+.form-group {
+    width: 800px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Preguntas Frecuentes (FAQ) */
+.faq-section {
+    padding: 40px 20px;
+    background-color: #1A1A1A;
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #00B4FF;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.faq-question .toggle-icon {
+    font-size: 24px;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #CCCCCC;
+}
+
+.faq-answer.active {
+    display: block;
+}
+
+/* Chatbot Simulado */
+.chatbot-section {
+    padding: 40px 20px;
+    background-color: #1A1A1A;
+}
+
+.chatbot-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #00B4FF;
+}
+
+.chatbot-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.chatbot-messages {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.message.user {
+    background-color: #00B4FF;
+    color: #FFFFFF;
+    align-self: flex-end;
+}
+
+.message.bot {
+    background-color: #555;
+    color: #FFFFFF;
+    align-self: flex-start;
+}
+
+.chatbot-container input {
+    margin-bottom: 15px;
+}
+
+#chatbot-input {
+    width: calc(100% - 90px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #FFFFFF;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1A1A1A;
+    border-top: 1px solid #333;
+}

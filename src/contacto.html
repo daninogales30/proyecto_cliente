@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechWave - Contacto y Soporte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="contacto.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>TechWave</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Catálogo</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Formulario de Contacto -->
+        <section class="contact-section">
+            <h2>Contacto</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+        </section>
+
+        <!-- Preguntas Frecuentes (FAQ) -->
+        <section class="faq-section">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Cómo realizo una compra?<span class="toggle-icon">+</span></h3>
+                    <p class="faq-answer">Para realizar una compra, selecciona los productos que deseas en nuestro catálogo y agrégalos al carrito. Luego, procede al pago.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Qué métodos de pago aceptan?<span class="toggle-icon">+</span></h3>
+                    <p class="faq-answer">Aceptamos tarjetas de crédito, débito y PayPal.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Cómo puedo contactar al soporte?<span class="toggle-icon">+</span></h3>
+                    <p class="faq-answer">Puedes contactarnos a través del formulario de contacto o enviarnos un correo a soporte@techwave.com.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chatbot Simulado -->
+        <section class="chatbot-section">
+            <h2>Chat de Soporte</h2>
+            <div class="chatbot-container">
+                <div class="chatbot-messages" id="chatbot-messages">
+                    <div class="message bot">Hola, soy el asistente virtual de TechWave. ¿En qué puedo ayudarte?</div>
+                </div>
+                <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje...">
+                <button class="btn" onclick="sendMessage()">Enviar</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 TechWave. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Funcionalidad del FAQ
+        const faqQuestions = document.querySelectorAll(".faq-question");
+        faqQuestions.forEach(question => {
+            question.addEventListener("click", () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector(".toggle-icon");
+                answer.classList.toggle("active");
+                icon.textContent = answer.classList.contains("active") ? "-" : "+";
+            });
+        });
+
+        // Funcionalidad del Chatbot
+        function sendMessage() {
+            const input = document.getElementById("chatbot-input");
+            const message = input.value.trim();
+            if (message) {
+                const messagesContainer = document.getElementById("chatbot-messages");
+                // Mensaje del usuario
+                const userMessage = document.createElement("div");
+                userMessage.classList.add("message", "user");
+                userMessage.textContent = message;
+                messagesContainer.appendChild(userMessage);
+                // Respuesta del bot
+                const botMessage = document.createElement("div");
+                botMessage.classList.add("message", "bot");
+                botMessage.textContent = "Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.";
+                messagesContainer.appendChild(botMessage);
+                // Limpiar el input
+                input.value = "";
+                // Desplazarse al final del chat
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        }
+
+        // Validación del formulario de contacto
+        document.getElementById("contact-form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            alert("Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.");
+        });
+    </script>
+</body>
+</html>

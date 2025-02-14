@@ -48,20 +48,20 @@
 
     <!-- Scripts -->
     <script>
-        // Simulación de productos en el carrito (pueden cargarse desde localStorage)
-        const cartItems = [
-            { id: 1, name: "Smartphone X", price: 500, quantity: 1, image: "img/phone1.jpg" },
-            { id: 2, name: "Auriculares Inalámbricos", price: 150, quantity: 2, image: "img/headphones1.jpg" }
-        ];
-
-        // Función para cargar productos en el carrito
+        // Función para cargar productos en el carrito desde localStorage
         function loadCartItems() {
             const cartItemsContainer = document.getElementById("cart-items");
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
             let total = 0;
 
             cartItemsContainer.innerHTML = ""; // Limpiar el contenedor
 
-            cartItems.forEach(item => {
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = "<p>No hay productos en el carrito.</p>";
+                return;
+            }
+
+            cart.forEach((item, index) => {
                 const cartItem = document.createElement("div");
                 cartItem.classList.add("cart-item");
                 cartItem.innerHTML = `
@@ -69,12 +69,11 @@
                     <div class="item-details">
                         <h3>${item.name}</h3>
                         <p>Precio: $${item.price}</p>
-                        <p>Cantidad: ${item.quantity}</p>
-                        <button class="btn-remove" onclick="removeItem(${item.id})">Eliminar</button>
+                        <button class="btn-remove" onclick="removeItem(${index})">Eliminar</button>
                     </div>
                 `;
                 cartItemsContainer.appendChild(cartItem);
-                total += item.price * item.quantity;
+                total += item.price;
             });
 
             // Actualizar el total
@@ -82,18 +81,22 @@
         }
 
         // Función para eliminar un producto del carrito
-        function removeItem(productId) {
-            const index = cartItems.findIndex(item => item.id === productId);
-            if (index !== -1) {
-                cartItems.splice(index, 1);
-                loadCartItems(); // Recargar los productos en el carrito
-            }
+        function removeItem(index) {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.splice(index, 1); // Eliminar el producto en la posición index
+            localStorage.setItem("cart", JSON.stringify(cart)); // Actualizar localStorage
+            loadCartItems(); // Recargar los productos en el carrito
         }
 
         // Función para confirmar la compra
         function confirmPurchase() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.length === 0) {
+                alert("El carrito está vacío.");
+                return;
+            }
             alert("¡Compra confirmada! Gracias por tu compra en TechWave.");
-            cartItems.length = 0; // Vaciar el carrito
+            localStorage.removeItem("cart"); // Vaciar el carrito
             loadCartItems(); // Recargar el carrito
         }
 
