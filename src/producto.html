@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechWave - Detalles del Producto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="productos.css">
+</head>
+
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>TechWave</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Catálogo</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Contenido Principal -->
+    <main>
+        <section class="product-details">
+            <div class="product-image">
+                <img id="product-image" src="" alt="Imagen del producto">
+            </div>
+            <div class="product-info">
+                <h2 id="product-name"></h2>
+                <p class="price" id="product-price"></p>
+                <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua.</p>
+                <button class="btn" onclick="addToCart()">Añadir al Carrito</button>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 TechWave. Todos los derechos reservados.</p>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script>
+        // Obtener el producto seleccionado del localStorage
+        const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
+
+
+        // Mostrar los detalles del producto
+        if (selectedProduct) {
+            document.getElementById("product-image").src = selectedProduct.image;
+            document.getElementById("product-name").textContent = selectedProduct.name;
+            document.getElementById("product-price").textContent = `$${selectedProduct.price}`;
+            document.getElementById("product-description").textContent = selectedProduct.description;
+        } else {
+            // Si no hay producto seleccionado, redirigir al catálogo
+            window.location.href = "productos.html";
+        }
+
+
+        // Función para añadir el producto al carrito
+        function addToCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push(selectedProduct); // Añadir el producto al carrito
+            localStorage.setItem("cart", JSON.stringify(cart)); // Guardar en localStorage
+            alert(`${selectedProduct.name} ha sido añadido al carrito.`);
+        }
+    </script>
+</body>
+
+
+</html>
