@@ -62,7 +62,7 @@
         if (selectedProduct) {
             document.getElementById("product-image").src = selectedProduct.image;
             document.getElementById("product-name").textContent = selectedProduct.name;
-            document.getElementById("product-price").textContent = `$${selectedProduct.price}`;
+            document.getElementById("product-price").textContent = `${selectedProduct.price}€`;
             document.getElementById("product-description").textContent = selectedProduct.description;
         } else {
             // Si no hay producto seleccionado, te manda al catálogo
