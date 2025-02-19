@@ -80,4 +80,16 @@ document.querySelector('.carousel-nav .prev').addEventListener('click', prevTest
 setInterval(nextSlide, 5000);
 setInterval(nextTestimonial, 5000);
 
+function viewProductDetails(productId) {
+   const product = products.find(p => p.id === productId);
+   localStorage.setItem("selectedProduct", JSON.stringify(product));
+   window.location.href = "producto.html";
+}
+
+const products = [
+   { id: 1, name: "Iphone 16", category: "smartphones", price: 500, image: "../imgs/iphone16.jpg", description: "Chip A18 Pro. Un chip colosal.Todo bajo Control de Cámara.Mezcla de Audio.Te van a oír.Nuevo ultra gran angular de 48 Mpx.Viva la resolución.iOS 18. Haz más tuyo cada píxel.Hasta 4 horas más de autonomía.Otro mundo.Referencia: 001094612300841" },
+   { id: 2, name: "PS5 Pro", category: "consoles", price: 799.99, image: "../imgs/ps5Pro.jpg", description: "Consola de alta calidad" },
+   { id: 3, name: "Dyson V15 Detect Absolute", category: "accesorios", price: 799.99, image: "../imgs/dyson.jpg", description: "Tremenda" },
+];
+
 

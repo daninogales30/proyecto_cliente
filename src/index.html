@@ -54,7 +54,7 @@
                     <a href="producto.html" class="btn">Ver más</a>
                 </div>
             </div>
-            
+
         </div>
         <div class="slider-nav">
             <button class="prev"><i class="fas fa-chevron-left"></i></button>
@@ -71,22 +71,22 @@
                 <img src="../imgs/iphone16.jpg" alt="Producto 1">
                 <h3>Iphone 16</h3>
                 <p class="price">1499.99€</p>
-                <a class="btn" href="productos.html">Ver detalles</a>
+                <a class="btn" onclick="viewProductDetails(1)">Ver detalles</a>
             </div>
             <div class="product-card">
                 <img src="../imgs/ps5Pro.jpg" height="200" width="200" alt="Producto 2">
                 <h3>PS5 Pro</h3>
                 <p class="price">799.99€</p>
-                <a class="btn" href="productos.html">Ver detalles</a>
+                <a class="btn" onclick="viewProductDetails(2)">Ver detalles</a>
             </div>
             <div class="product-card">
                 <img src="../imgs/dyson.jpg" height="200" width="200" alt="Producto 3">
                 <h3>Dyson V15 Detect Absolute</h3>
                 <p class="price">799.99€</p>
-                <a class="btn"  href="productos.html">Ver detalles</a>
+                <a class="btn" onclick="viewProductDetails(3)">Ver detalles</a>
             </div>
-            
-            
+
+
         </div>
     </section>
 
@@ -121,7 +121,71 @@
     </footer>
 
 
-    <script src="scripts.js"></script>
+    <script>
+        // Slider del Banner
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        document.querySelector('.next').addEventListener('click', nextSlide);
+        document.querySelector('.prev').addEventListener('click', prevSlide);
+
+        // Carrusel de Opiniones
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const totalTestimonials = testimonials.length;
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+            showTestimonial(currentTestimonial);
+        }
+
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+            showTestimonial(currentTestimonial);
+        }
+
+        document.querySelector('.carousel-nav .next').addEventListener('click', nextTestimonial);
+        document.querySelector('.carousel-nav .prev').addEventListener('click', prevTestimonial);
+
+        // Cambiar slides automáticamente cada 5 segundos
+        setInterval(nextSlide, 5000);
+        setInterval(nextTestimonial, 5000);
+
+        const products = [
+            { id: 1, name: "Iphone 16", category: "smartphones", price: 500, image: "../imgs/iphone16.jpg", description: "Chip A18 Pro. Un chip colosal.Todo bajo Control de Cámara.Mezcla de Audio.Te van a oír.Nuevo ultra gran angular de 48 Mpx.Viva la resolución.iOS 18. Haz más tuyo cada píxel.Hasta 4 horas más de autonomía.Otro mundo.Referencia: 001094612300841" },
+            { id: 2, name: "PS5 Pro", category: "consoles", price: 799.99, image: "../imgs/ps5Pro.jpg", description: "Consola de alta calidad" },
+            { id: 3, name: "Dyson V15 Detect Absolute", category: "accesorios", price: 799.99, image: "../imgs/dyson.jpg", description: "Tremenda" },
+        ];
+
+        function viewProductDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            localStorage.setItem("selectedProduct", JSON.stringify(product));
+            window.location.href = "producto.html";
+        }
+    </script>
 </body>
 
 </html>
