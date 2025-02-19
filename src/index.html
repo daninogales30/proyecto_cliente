@@ -27,7 +27,6 @@
         </nav>
     </header>
 
-
     <!-- Banner Principal -->
     <section class="banner">
         <div class="slider">
@@ -35,7 +34,7 @@
                 <div class="slide-content">
                     <h2>Explora lo último en tecnología</h2>
                     <p>Descubre gadgets innovadores que cambiarán tu vida.</p>
-                    <a href="productos.html" class="btn">Ver más</a>
+                    <a class="btn" href="productos.html">Ver más</a>
                 </div>
             </div>
             <div class="slide">
@@ -43,7 +42,7 @@
                 <div class="slide-content">
                     <h2>Smartwatches inteligentes</h2>
                     <p>Conecta tu mundo con nuestros relojes inteligentes.</p>
-                    <a onclick="viewProductDetails(4)" class="btn">Ver más</a>
+                    <a id="vermas2" class="btn">Ver más</a>
                 </div>
             </div>
             <div class="slide">
@@ -51,17 +50,15 @@
                 <div class="slide-content">
                     <h2>Auriculares inalámbricos</h2>
                     <p>Experimenta el sonido como nunca antes.</p>
-                    <a onclick="viewProductDetails(4)" class="btn">Ver más</a>
+                    <a id="vermas3" class="btn">Ver más</a>
                 </div>
             </div>
-
         </div>
         <div class="slider-nav">
             <button class="prev"><i class="fas fa-chevron-left"></i></button>
             <button class="next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
-
 
     <!-- Productos Destacados -->
     <section class="featured-products">
@@ -71,25 +68,22 @@
                 <img src="../imgs/iphone16.jpg" alt="Producto 1">
                 <h3>Iphone 16</h3>
                 <p class="price">1499.99€</p>
-                <a class="btn" onclick="viewProductDetails(1)">Ver detalles</a>
+                <a href="javascript:void(0);" class="btn" onclick="viewProductDetails(1)">Ver detalles</a>
             </div>
             <div class="product-card">
                 <img src="../imgs/ps5Pro.jpg" height="200" width="200" alt="Producto 2">
                 <h3>PS5 Pro</h3>
                 <p class="price">799.99€</p>
-                <a class="btn" onclick="viewProductDetails(2)">Ver detalles</a>
+                <a href="javascript:void(0);" class="btn" onclick="viewProductDetails(2)">Ver detalles</a>
             </div>
             <div class="product-card">
                 <img src="../imgs/dyson.jpg" height="200" width="200" alt="Producto 3">
                 <h3>Dyson V15 Detect Absolute</h3>
                 <p class="price">799.99€</p>
-                <a class="btn" onclick="viewProductDetails(3)">Ver detalles</a>
+                <a href="javascript:void(0);" class="btn" onclick="viewProductDetails(3)">Ver detalles</a>
             </div>
-
-
         </div>
     </section>
-
 
     <!-- Opiniones de Clientes -->
     <section class="testimonials">
@@ -114,12 +108,10 @@
         </div>
     </section>
 
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 TechWave. Todos los derechos reservados.</p>
     </footer>
-
 
     <script>
         // Slider del Banner
@@ -183,9 +175,21 @@
 
         function viewProductDetails(productId) {
             const product = products.find(p => p.id === productId);
-            localStorage.setItem("selectedProduct", JSON.stringify(product));
-            window.location.href = "producto.html";
+            if (product) {
+                localStorage.setItem("selectedProduct", JSON.stringify(product));
+                window.location.href = "producto.html";
+            } else {
+                console.error("Producto no encontrado");
+            }
         }
+
+        document.getElementById("vermas2").addEventListener("click", function(){
+            viewProductDetails(4)
+        });
+
+        document.getElementById("vermas3").addEventListener("click", function(){
+            viewProductDetails(4)
+        });
     </script>
 </body>
 
