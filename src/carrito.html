@@ -35,7 +35,7 @@
             </div>
             <div class="cart-summary">
                 <h3>Resumen de la Compra</h3>
-                <p>Total: <span id="cart-total">$0</span></p>
+                <p>Total: <span id="cart-total"></span></p>
                 <button class="btn" onclick="confirmPurchase()">Confirmar Compra</button>
             </div>
         </section>
@@ -58,7 +58,7 @@
 
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = "<p>No hay productos en el carrito.</p>";
-                document.getElementById("cart-total").textContent = `$0`;
+                document.getElementById("cart-total").textContent = `0€`;
                 return;
             }
 
@@ -69,7 +69,7 @@
                     <img src="${item.image}" alt="${item.name}">
                     <div class="item-details">
                         <h3>${item.name}</h3>
-                        <p>Precio: $${item.price}</p>
+                        <p>Precio: ${item.price}€</p>
                         <button class="btn-remove" onclick="removeItem(${index})">Eliminar</button>
                     </div>
                 `;
@@ -78,7 +78,7 @@
             });
 
             // Actualizar el total
-            document.getElementById("cart-total").textContent = `$${total}`;
+            document.getElementById("cart-total").textContent = `${total}€`;
         }
 
         // Función para eliminar un producto del carrito
