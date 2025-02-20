@@ -34,7 +34,6 @@
                 <div class="slide-content">
                     <h2>Explora lo último en tecnología</h2>
                     <p>Descubre gadgets innovadores que cambiarán tu vida.</p>
-                    <a class="btn" href="productos.html">Ver más</a>
                 </div>
             </div>
             <div class="slide">
@@ -42,7 +41,6 @@
                 <div class="slide-content">
                     <h2>Smartwatches inteligentes</h2>
                     <p>Conecta tu mundo con nuestros relojes inteligentes.</p>
-                    <a id="vermas2" class="btn">Ver más</a>
                 </div>
             </div>
             <div class="slide">
@@ -50,7 +48,6 @@
                 <div class="slide-content">
                     <h2>Auriculares inalámbricos</h2>
                     <p>Experimenta el sonido como nunca antes.</p>
-                    <a id="vermas3" class="btn">Ver más</a>
                 </div>
             </div>
         </div>
@@ -112,6 +109,9 @@
     <footer>
         <p>&copy; 2025 TechWave. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Notificación Toast -->
+    <div id="toast" class="toast">Producto añadido al carrito</div>
 
     <script>
         // Slider del Banner
@@ -183,13 +183,13 @@
             }
         }
 
-        document.getElementById("vermas2").addEventListener("click", function(){
-            viewProductDetails(4)
-        });
-
-        document.getElementById("vermas3").addEventListener("click", function(){
-            viewProductDetails(4)
-        });
+        // Mostrar notificación toast
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 3000);
+        }
     </script>
 </body>
 

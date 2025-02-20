@@ -40,7 +40,8 @@
                 <p class="price" id="product-price"></p>
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua.</p>
-                <button class="btn" onclick="addToCart()">Añadir al Carrito</button>
+                <button class="btn" onclick="addToCart()">Añadir al Carrito</button><br>
+                <button class="btn" onclick="addToFavorites()">Añadir a Favoritos</button>
             </div>
         </section>
     </main>
@@ -76,6 +77,20 @@
             cart.push(selectedProduct); // Añadir el producto al carrito
             localStorage.setItem("cart", JSON.stringify(cart)); // Guardar en localStorage
             alert(`${selectedProduct.name} ha sido añadido al carrito.`);
+        }
+
+        function addToFavorites() {
+            const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+            // Verificar si el producto ya está en favoritos
+            if (!favorites.some(item => item.id === selectedProduct.id)) {
+                favorites.push(selectedProduct);
+                localStorage.setItem("favorites", JSON.stringify(favorites));
+                alert(`${selectedProduct.name} ha sido añadido a favoritos.`);
+            } else {
+                alert("Este producto ya está en tus favoritos.");
+            }
         }
     </script>
 </body>

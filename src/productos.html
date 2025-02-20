@@ -60,7 +60,6 @@
 
     <!-- Scripts -->
     <script>
-        // Datos de productos (simulados desde un JSON local)
         const products = [
             { id: 1, name: "Iphone 16", category: "smartphones", price: 500, image: "../imgs/iphone16.jpg", description: "Chip A18 Pro. Un chip colosal.Todo bajo Control de Cámara.Mezcla de Audio.Te van a oír.Nuevo ultra gran angular de 48 Mpx.Viva la resolución.iOS 18. Haz más tuyo cada píxel.Hasta 4 horas más de autonomía.Otro mundo.Referencia: 001094612300841" },
             { id: 2, name: "Laptop Pro", category: "laptops", price: 1200, image: "../imgs/laptop_pro.webp", description: "Pantalla IPS de 14,1 pulgadas: La pantalla de 14,1 pulgadas le brinda a este dispositivo la portabilidad que necesita para trabajar o viajar por negocios, sin sacrificar la experiencia visual para la transmisión de videos y juegos" },
@@ -72,7 +71,6 @@
             { id: 8, name: 'TV QLED 75" - Samsung', category: "tv", price: 899.99, image: "../imgs/dyson.jpg", description: "Increible" }
         ];
 
-        // Función para cargar productos en la página
         function loadProducts(filteredProducts = products) {
             const productGrid = document.getElementById("product-grid");
             productGrid.innerHTML = ""; // Limpiar el grid
@@ -90,7 +88,6 @@
             });
         }
 
-        // Función para filtrar productos
         function filterProducts() {
             const category = document.getElementById("category-filter").value;
             const price = parseFloat(document.getElementById("price-filter").value);
@@ -105,14 +102,12 @@
             loadProducts(filteredProducts);
         }
 
-        // Función para ver detalles del producto
         function viewProductDetails(productId) {
             const product = products.find(p => p.id === productId);
             localStorage.setItem("selectedProduct", JSON.stringify(product));
             window.location.href = "producto.html";
         }
 
-        // Eventos
         document.getElementById("category-filter").addEventListener("change", filterProducts);
         document.getElementById("price-filter").addEventListener("input", () => {
             document.getElementById("price-value").textContent = `Hasta $${document.getElementById("price-filter").value}`;
@@ -120,7 +115,6 @@
         });
         document.getElementById("search-bar").addEventListener("input", filterProducts);
 
-        // Cargar productos al iniciar la página
         loadProducts();
     </script>
 </body>
