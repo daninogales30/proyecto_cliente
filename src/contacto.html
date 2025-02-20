@@ -84,36 +84,32 @@
 
     <!-- Scripts -->
     <script>
-        // Funcionalidad del FAQ
+        // Funcionalidad del preguntas frecuentes
         const faqQuestions = document.querySelectorAll(".faq-question");
         faqQuestions.forEach(question => {
             question.addEventListener("click", () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector(".toggle-icon");
+                const answer = question.nextElementSibling; // Creacion de la pre
+                const icon = question.querySelector(".toggle-icon"); // Cogemos el icono de la pregunta 
                 answer.classList.toggle("active");
-                icon.textContent = answer.classList.contains("active") ? "-" : "+";
+                icon.textContent = answer.classList.contains("active") ? "-" : "+"; // Esto hace que cuando tiene la clase "active" cambie el icono por - y si no, por +
             });
         });
 
-        // Funcionalidad del Chatbot
+        // Funcionalidad del Chat
         function sendMessage() {
-            const input = document.getElementById("chatbot-input");
-            const message = input.value.trim();
-            if (message) {
+            const input = document.getElementById("chatbot-input"); // Cogemos en el elemento donde introducen el mensaje
+            const message = input.value.trim(); // Coge el valor del mensaje
+            if (message) { // Si el mensaje elxiste...
                 const messagesContainer = document.getElementById("chatbot-messages");
-                // Mensaje del usuario
                 const userMessage = document.createElement("div");
                 userMessage.classList.add("message", "user");
                 userMessage.textContent = message;
                 messagesContainer.appendChild(userMessage);
-                // Respuesta del bot
                 const botMessage = document.createElement("div");
                 botMessage.classList.add("message", "bot");
                 botMessage.textContent = "Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.";
                 messagesContainer.appendChild(botMessage);
-                // Limpiar el input
                 input.value = "";
-                // Desplazarse al final del chat
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
             }
         }
