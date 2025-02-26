@@ -32,7 +32,7 @@ TechWave está diseñado para que la experiencia de compra sea rápida, sencilla
 
 ---
 
-### **3️⃣ Detalles de Producto (`detalle_producto.html`)**  
+### **3️⃣ Detalles de Producto (`producto.html`)**  
 🔹 Desarrollado por **Jesús Gómez**  
 🔹 Página individual para cada producto con información detallada.  
 🔹 Descripción completa, precio y especificaciones técnicas.  
