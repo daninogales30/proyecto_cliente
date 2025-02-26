@@ -90,7 +90,7 @@
             question.addEventListener("click", () => {
                 const answer = question.nextElementSibling; // Creacion de la pre
                 const icon = question.querySelector(".toggle-icon"); // Cogemos el icono de la pregunta 
-                answer.classList.toggle("active");
+                answer.classList.toggle("active"); //Alternamos añadiendo y quitando la clase "active "
                 icon.textContent = answer.classList.contains("active") ? "-" : "+"; // Esto hace que cuando tiene la clase "active" cambie el icono por - y si no, por +
             });
         });
@@ -99,11 +99,11 @@
         function sendMessage() {
             const input = document.getElementById("chatbot-input"); // Cogemos en el elemento donde introducen el mensaje
             const message = input.value.trim(); // Coge el valor del mensaje
-            if (message) { // Si el mensaje elxiste...
-                const messagesContainer = document.getElementById("chatbot-messages");
-                const userMessage = document.createElement("div");
-                userMessage.classList.add("message", "user");
-                userMessage.textContent = message;
+            if (message) { // Si el mensaje existe...
+                const messagesContainer = document.getElementById("chatbot-messages"); // Cogemos el container de los mensajes
+                const userMessage = document.createElement("div"); // Creamos el div con el mensaje del usuario
+                userMessage.classList.add("message", "user"); // Le añadimos la clase "message" con el valor "user" al div del mensaje del usuario
+                userMessage.textContent = message; // 
                 messagesContainer.appendChild(userMessage);
                 const botMessage = document.createElement("div");
                 botMessage.classList.add("message", "bot");
