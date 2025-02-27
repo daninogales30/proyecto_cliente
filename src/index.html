@@ -110,9 +110,6 @@
         <p>&copy; 2025 TechWave. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Notificación Toast -->
-    <div id="toast" class="toast">Producto añadido al carrito</div>
-
     <script>
         // Slider del Banner
         let currentSlide = 0;
@@ -183,13 +180,6 @@
             }
         }
 
-        // Mostrar notificación toast
-        function showToast(message) {
-            const toast = document.getElementById("toast");
-            toast.textContent = message;
-            toast.classList.add("show");
-            setTimeout(() => toast.classList.remove("show"), 3000);
-        }
     </script>
 </body>
 
