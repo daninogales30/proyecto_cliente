@@ -16,7 +16,9 @@
     }
     ```
   - Recorre todos los slides con `forEach`.
+
   - Añade la clase `active` al slide con el índice que coincide, borrando los demás.
+
   - Controla qué slide es visible.
 
 - **`nextSlide()`**  
@@ -26,7 +28,9 @@
         showSlide(currentSlide);
     }
     ```
+
   - Incrementa `currentSlide` usando módulo (`%`) para que no se pase del total
+
   - Ejemplo: Si hay 3 slides, `(2 + 1) % 3 = 0`.
     
 - **`prevSlide()`**  
@@ -37,6 +41,7 @@
     }
     ```
   - Decrementa `currentSlide` ajustando con `+ totalSlides` para evitar valores negativos.
+
   - Ejemplo: `(0 - 1 + 3) % 3 = 2`.
 
 ### **Event Listeners:**
@@ -78,6 +83,7 @@
   - Lógica idéntica al slider del banner.
 
 ### **Event Listeners y Intervalo:**
+
 - Mismos botones de navegación y intervalo automático que el banner.
 
 ---
@@ -89,11 +95,17 @@
 ### **Función `viewProductDetails(productId)`:**
     
 - Busca el producto en el array con `find()`.
+
 - **Almacenamiento Local:**  
+
   - Guarda el producto seleccionado en `localStorage` como JSON.
+
   - Redirige a `producto.html` para mostrar detalles.
+
 - **Manejo de Errores:**  
+
   - Si el producto no existe, muestra error en consola.
+
 
 ---
 
