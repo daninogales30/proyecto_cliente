@@ -36,7 +36,10 @@ TechWave está diseñado para que la experiencia de compra sea rápida, sencilla
 
 🔹 **Tecnologías utilizadas:**  
    - HTML5, CSS3, JavaScript.  
+   - Animaciones CSS para mejorar la experiencia del usuario.
 
+🔹 **Tecnologías utilizadas:**  
+   - HTML5, CSS3, JavaScript.  
    - Animaciones CSS para mejorar la experiencia del usuario.  
 
 ---
