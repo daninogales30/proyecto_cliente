@@ -20,6 +20,10 @@ TechWave está diseñado para que la experiencia de compra sea rápida, sencilla
 ---
 
 ## 📌 Descripción de las Secciones
+🔹Antes de empezar hemos utilizado una funcionalidad llamada localStorage para almacenar datos localmente ya que no usamos base de datos.Hemos sacado esta funcionalidad de estas paginas:
+   🔹https://es.javascript.info/localstorage
+   🔹https://www.freecodecamp.org/espanol/news/como-usar-localstorage-en-javascript/
+🔹También usamos JSON, para pasar los datos a JSON y asi acceder mas facilmente
 
 ### 1️⃣ Página de Inicio (`index.html`)  
 🔹 **Desarrollado por:** **Dario Romero**  
